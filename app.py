@@ -16,12 +16,14 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 # ---------------- DATABASE ---------------- #
 
+# ---------------- DATABASE ---------------- #
+
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="real_estate",
-    port=3306
+    host="mysql-2aa2f818-romulasnirmal661-5570.e.aivencloud.com",
+    user="avnadmin",
+    password=os.environ.get("DB_PASSWORD"),
+    database="defaultdb",
+    port=14708
 )
 
 cursor = db.cursor(dictionary=True)
