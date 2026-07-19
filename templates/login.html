@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+body{
+
+background:#f4f4f4;
+font-family:Arial;
+
+}
+
+.login-box{
+
+width:400px;
+margin:100px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+
+}
+
+input{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+
+}
+
+button{
+
+width:100%;
+padding:12px;
+background:#0d6efd;
+color:white;
+border:none;
+font-size:18px;
+cursor:pointer;
+
+}
+
+h2{
+
+text-align:center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>Admin Login</h2>
+
+<form action="/login" method="POST">
+
+<input
+type="text"
+name="username"
+placeholder="Username"
+required>
+
+<input
+type="password"
+name="password"
+placeholder="Password"
+required>
+
+<button type="submit">
+
+Login
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Properties | SRI MAHA REAL ESTATE</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<h2>SRI MAHA REAL ESTATE</h2>
+</div>
+
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/properties">Properties</a></li>
+<li><a href="/services">Services</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</nav>
+
+</header>
+
+<section class="properties">
+
+<h2 style="text-align:center;margin-top:30px;">
+All Properties
+</h2>
+
+<form action="/properties" method="GET" style="text-align:center;margin:30px;">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search by Title or Location"
+        value="{{ request.args.get('search','') }}"
+        style="width:350px;padding:12px;font-size:17px;border-radius:6px;border:1px solid #ccc;">
+
+    <button
+        type="submit"
+        style="padding:12px 25px;background:#0d6efd;color:white;border:none;border-radius:6px;cursor:pointer;">
+        Search
+    </button>
+
+    <a href="/properties"
+       style="padding:12px 25px;background:#6c757d;color:white;text-decoration:none;border-radius:6px;margin-left:10px;">
+        Reset
+    </a>
+
+</form>
+
+<div class="property-container">
+
+{% if properties %}
+
+{% for property in properties %}
+
+<div class="card">
+
+{% if property.image %}
+
+<a href="{{ url_for('static', filename='uploads/' + property.image) }}" target="_blank">
+
+<img
+src="{{ url_for('static', filename='uploads/' + property.image) }}"
+alt="{{ property.title }}"
+style="cursor:pointer;">
+
+</a>
+
+{% else %}
+
+<img
+src="{{ url_for('static', filename='images/no-image.png') }}"
+alt="No Image">
+
+{% endif %}
+
+<h3>{{ property.title }}</h3>
+
+<p>📍 {{ property.location }}</p>
+
+<h4 style="color:green;">
+₹ {{ property.price }}
+</h4>
+
+<p>
+{{ property.description[:100] }}...
+</p>
+
+<a href="/property/{{ property.id }}" class="btn">
+View Details
+</a>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<h3 style="text-align:center;width:100%;color:red;">
+No Properties Available
+</h3>
+
+{% endif %}
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 SRI MAHA REAL ESTATE | All Rights Reserved.
+</p>
+
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

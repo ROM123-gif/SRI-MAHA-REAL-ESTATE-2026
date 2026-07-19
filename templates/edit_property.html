@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit Property</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+.container{
+width:600px;
+margin:40px auto;
+}
+
+input,textarea{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+
+}
+
+button{
+
+padding:12px 30px;
+background:#0d6efd;
+color:white;
+border:none;
+font-size:18px;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 align="center">
+
+Edit Property
+
+</h1>
+
+<div class="container">
+
+<form action="/update-property/{{property.id}}" method="POST">
+
+<input
+type="text"
+name="title"
+value="{{property.title}}">
+
+<input
+type="text"
+name="location"
+value="{{property.location}}">
+
+<input
+type="text"
+name="price"
+value="{{property.price}}">
+
+<input
+type="text"
+name="image"
+value="{{property.image}}">
+
+<textarea
+name="description">{{property.description}}</textarea>
+
+<button>
+
+Update Property
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

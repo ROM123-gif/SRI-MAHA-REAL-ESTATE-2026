@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Property</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<h1 align="center">
+
+SRI MAHA REAL ESTATE
+
+</h1>
+
+</header>
+
+<div style="width:700px;margin:auto;padding:30px;">
+
+<h2 align="center">
+
+Add New Property
+
+</h2>
+
+<form
+action="/save-property"
+method="POST"
+enctype="multipart/form-data">
+
+<label>Property Title</label>
+
+<input
+type="text"
+name="title"
+required
+style="width:100%;padding:12px;margin:10px 0;">
+
+<label>Location</label>
+
+<input
+type="text"
+name="location"
+required
+style="width:100%;padding:12px;margin:10px 0;">
+
+<label>Price</label>
+
+<input
+type="text"
+name="price"
+required
+style="width:100%;padding:12px;margin:10px 0;">
+
+<label>Property Image</label>
+
+<input
+type="file"
+name="image"
+required
+style="width:100%;padding:12px;margin:10px 0;">
+
+<label>Description</label>
+
+<textarea
+name="description"
+required
+style="width:100%;height:150px;padding:12px;margin:10px 0;"></textarea>
+
+<button
+type="submit"
+style="padding:12px 30px;background:#0d6efd;color:white;border:none;font-size:18px;cursor:pointer;">
+
+Save Property
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

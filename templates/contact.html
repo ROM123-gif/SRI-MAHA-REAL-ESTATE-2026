@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - SRI MAHA REAL ESTATE</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+.contact-container{
+    max-width:1100px;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.contact-info{
+    background:#0d6efd;
+    color:white;
+    padding:40px;
+    border-radius:10px;
+}
+
+.contact-info h2{
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    margin:15px 0;
+    font-size:18px;
+    line-height:30px;
+}
+
+.contact-form{
+    background:#fff;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,.15);
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+
+.contact-form button{
+    width:100%;
+    padding:14px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.contact-form button:hover{
+    background:#084298;
+}
+
+.whatsapp-btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#25D366;
+    color:white;
+    padding:12px 20px;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="{{ url_for('static', filename='images/logo.png') }}" width="60">
+
+<div>
+<h2>SRI MAHA REAL ESTATE</h2>
+<p>Trusted Real Estate Services</p>
+</div>
+
+</div>
+
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/properties">Properties</a></li>
+<li><a href="/services">Services</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</nav>
+
+</header>
+
+<section>
+
+<div class="contact-container">
+
+<div class="contact-info">
+
+<h2>Contact Information</h2>
+
+<p><b>Company :</b> SRI MAHA REAL ESTATE</p>
+
+<p><b>Owner :</b> NAVEEN</p>
+
+<p><b>Mobile :</b> +91 7338851014</p>
+
+<p><b>WhatsApp :</b> +91 7338851014</p>
+
+<p><b>Address :</b><br>
+99A, Anna Street,<br>
+Rathinapuri,<br>
+Coimbatore - 641012
+</p>
+
+<a class="whatsapp-btn"
+href="https://wa.me/917338851014"
+target="_blank">
+Chat on WhatsApp
+</a>
+
+</div>
+
+<div class="contact-form">
+
+<h2>Send Enquiry</h2>
+{% if success %}
+<div style="background:#28a745;
+            color:white;
+            padding:15px;
+            border-radius:6px;
+            margin-bottom:20px;
+            text-align:center;">
+    {{ success }}
+</div>
+{% endif %}
+
+<form action="/contact" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="text" name="phone" placeholder="Phone Number" required>
+
+<textarea name="message" rows="6" placeholder="Message" required></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+<h2 style="text-align:center;margin-top:50px;">
+Our Office Location
+</h2>
+
+<div style="width:90%;margin:30px auto;">
+
+<iframe
+src="https://www.google.com/maps?q=99A%20Anna%20Street%20Rathinapuri%20Coimbatore%20641012&output=embed"
+width="100%"
+height="450"
+style="border:0;border-radius:10px;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+</div>
+
+</section>
+
+<footer>
+
+<p style="text-align:center;padding:20px;">
+© 2026 SRI MAHA REAL ESTATE | All Rights Reserved.
+</p>
+
+</footer>
+
+</body>
+</html>

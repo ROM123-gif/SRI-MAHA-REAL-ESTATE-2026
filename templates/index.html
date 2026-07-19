@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRI MAHA REAL ESTATE</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="SRI MAHA REAL ESTATE Logo">
+
+    <div>
+        <h2>SRI MAHA REAL ESTATE</h2>
+        <p>Trusted Real Estate Services</p>
+    </div>
+</div>
+
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/properties">Properties</a></li>
+<li><a href="/services">Services</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="overlay">
+
+<h1>Find Your Dream Property</h1>
+
+<p>
+Buy • Sell • Rent Luxury Villas, Apartments and Lands
+</p>
+
+<a href="/properties" class="btn">
+Explore Properties
+</a>
+<br><br>
+
+<a href="tel:+917338851014" class="call-btn">
+📞 Call Now
+</a>
+
+</div>
+
+</section>
+
+<section class="properties">
+
+<h2>Latest Properties</h2>
+
+<div class="property-container">
+
+{% for property in properties %}
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='uploads/' + property.image) }}" alt="{{ property.title }}">
+
+<h3>{{ property.title }}</h3>
+
+<p>📍 {{ property.location }}</p>
+
+<h4>₹ {{ property.price }}</h4>
+
+<a href="/property/{{ property.id }}" class="btn">
+View Details
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+<section style="padding:60px;background:#0d6efd;color:white;text-align:center;">
+
+<h2>Why Choose SRI MAHA REAL ESTATE?</h2>
+
+<br>
+
+<div class="property-container">
+
+<div class="card">
+<h3>🏡 Best Properties</h3>
+<p>Premium Villas, Apartments and Lands at affordable prices.</p>
+</div>
+
+<div class="card">
+<h3>💰 Best Price</h3>
+<p>We offer competitive prices with complete transparency.</p>
+</div>
+
+<div class="card">
+<h3>🤝 Trusted Service</h3>
+<p>100% customer satisfaction with legal support.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-box">
+
+<h2>SRI MAHA REAL ESTATE</h2>
+
+<p>
+We help you buy, sell and rent houses, villas,
+apartments and lands with trusted service.
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Contact</h3>
+
+<p>📞 +91 7338851014</p>
+
+<p>📍 99A, Anna Street,<br>
+Rathinapuri,<br>
+Coimbatore - 641012</p>
+
+<p>✉️ srimaharealestate@gmail.com</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>Quick Links</h3>
+
+<p><a href="/">Home</a></p>
+
+<p><a href="/about">About</a></p>
+
+<p><a href="/properties">Properties</a></p>
+
+<p><a href="/contact">Contact</a></p>
+
+</div>
+
+</footer>
+
+<div class="copyright">
+
+© 2026 SRI MAHA REAL ESTATE | All Rights Reserved.
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<a href="https://wa.me/917338851014"
+class="whatsapp-float"
+target="_blank">
+💬
+</a>
+</body>
+</html>
